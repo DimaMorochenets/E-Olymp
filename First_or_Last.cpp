@@ -11,3 +11,6 @@ int main()
 
     return 0;
 }
+
+/*Three digit number is given. What digit is bigger: 
+the first digit or the last digit*/
