@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.10)
 project(E_Olymp)
 
 add_executable(task1     Task1_Simple_Problem.cpp)
-add_executable(task9     Task9_N_digit_Numbers_1.cpp)
+add_executable(task9     Task9_N_digit_Numbers.cpp)
 add_executable(task115   Task115_Two_Digits.cpp)
 add_executable(task219   Task219_Central_Heating.cpp)
 add_executable(task248   Task248_Young_Gardener.cpp)
