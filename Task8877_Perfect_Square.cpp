@@ -6,7 +6,7 @@ int main()
 	int x;
     std::cin >> x;
 
-    int y = sqrt(x);
+    int y = (int)sqrt(x);
 
     y * y == x ? std::cout << y:std::cout << "No";
     

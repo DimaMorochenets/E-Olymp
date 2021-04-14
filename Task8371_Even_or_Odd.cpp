@@ -11,3 +11,5 @@ int main()
 
 	return 0;
 }
+
+/*Positive integer n is given. Determine its parity*/
