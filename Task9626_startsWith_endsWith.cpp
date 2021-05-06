@@ -25,3 +25,7 @@ bool check(const std::string& first, const std::string& second, size_t start)
             return false;
     return true;
 }
+
+/*Three lines of characters is given. 
+Check if the second line is a prefix of the first line. 
+Check if the third line is a suffix of the first line.*/
