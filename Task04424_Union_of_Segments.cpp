@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 //add new segment to line
 void fill_line(std::vector<std::pair<int64_t, int64_t>>&, std::pair<int64_t, int64_t>&&);
@@ -10,26 +11,28 @@ int main()
 {
     size_t n;
     std::cin >> n;
-    int64_t left, right;
+    int64_t left, rigth;
     std::vector<std::pair<int64_t, int64_t>> line;
 
     n--;
-    std::cin >> left >> right;
-    line.push_back({left, right});
+    std::cin >> left >> rigth;
+    line.push_back({left, rigth});
 
-    while(n-- && std::cin >> left >> right)
-        fill_line(line, {left, right});
+    while(n-- && std::cin >> left >> rigth)
+        fill_line(line, {left, rigth});
     
     for(auto cur_segment = line.begin(); cur_segment != line.end(); cur_segment++)
         if(update_line(line, cur_segment))
             cur_segment--;
+    
+    std::sort(line.begin(), line.end(), [](std::pair<int64_t, int64_t>& a, std::pair<int64_t, int64_t>& b) { return a.first < b.first; });
 
-    size_t length = 0;
-    for(const auto& segment:line)
-        length += std::abs(segment.second - segment.first);
+    std::cout << line.size() << std::endl;
+    for(const auto& i:line)
+        std::cout << i.first << " " << i.second << std::endl;
 
-    std::cout << length << std::endl;
-
+    getchar();
+    getchar();
     return 0;
 }
 void fill_line(std::vector<std::pair<int64_t, int64_t>>& line, std::pair<int64_t, int64_t>&& new_segment)
@@ -55,8 +58,7 @@ void fill_line(std::vector<std::pair<int64_t, int64_t>>& line, std::pair<int64_t
 }
 bool update_line(std::vector<std::pair<int64_t, int64_t>>& line, std::vector<std::pair<int64_t, int64_t>>::iterator cur_segment)
 {
-    if(cur_segment == line.end()) return false;
-    for(auto segment = line.begin(); segment != line.end(); segment++){
+    for(auto segment = cur_segment; segment != line.end(); segment++){
         if(cur_segment == segment) continue;
         if(cur_segment->first <= segment->first && cur_segment->second >= segment->second){
             line.erase(segment);
@@ -82,6 +84,8 @@ bool update_line(std::vector<std::pair<int64_t, int64_t>>& line, std::vector<std
     return false;
 }
 
-/*n segments are painted on the line. 
-The coordinates of the left and right ends of each segment li and ri are known.
-Find the length of the colored part of the line.*/
+/*Solving the problem from the quiz in mathematics, 
+Vasya received the answer in the form of union of n segments [li, ri] on the number line. 
+However, some of these segments may intersect with each other, that Vasya does not like too much.
+
+Your task is to present Vasya's answer as a union of the minimum number of segments.*/
