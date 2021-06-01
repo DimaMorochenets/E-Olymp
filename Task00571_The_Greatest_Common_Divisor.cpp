@@ -19,15 +19,15 @@ int  main()
 }
 int GCD(int a, int b)
 {
-	if (!a) return b;	//перший параметр 0
-	if (!b) return a;	//другий параметр 0
-	if (a == b) return a;//параметри рівні
-	if (a == 1 || b == 1) return 1;	//один з параметрів 1
-	if (!(a & 1) && !(b & 1)) //обидва параметри парні
+	if (!a) return b;	
+	if (!b) return a;	
+	if (a == b) return a;
+	if (a == 1 || b == 1) return 1;
+	if (!(a & 1) && !(b & 1)) 
 		return GCD(a >> 1, b >> 1) << 1;
-	if (!(a & 1) && (b & 1))  //другий параметр не парний
+	if (!(a & 1) && (b & 1))  
 		return GCD(a >> 1, b);
-	if ((a & 1) && !(b & 1))  //перший параметр не парний
+	if ((a & 1) && !(b & 1)) 
 		return GCD(a, b >> 1);
 	if (a < b) return GCD((b - a) >> 1, a);
 	return GCD((a - b) >> 1, b);

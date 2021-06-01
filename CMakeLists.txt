@@ -4,6 +4,7 @@ project(E_Olymp)
 
 add_executable(task00001  Task00001_Simple_Problem.cpp)
 add_executable(task00002  Task00002_Digits.cpp)
+add_executable(task00004  Task00004_Two_Circles.cpp)
 add_executable(task00009  Task00009_N_digit_Numbers.cpp)
 add_executable(task00115  Task00115_Two_Digits.cpp)
 add_executable(task00141  Task00141_The_Minimal_Sum_of_Digits.cpp)
