@@ -29,7 +29,7 @@ bool check(const std::vector<uint32_t>& N, size_t L, size_t R)
 
     if(sum % (R - L + 1)) return false;
 
-    sum = sum / (R - L + 1);
+    sum = sum / (uint32_t)(R - L + 1);
     for(size_t i = L; i <= R; i++)
         if(N[i] == sum)
             return true;
